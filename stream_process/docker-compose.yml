@@ -1,0 +1,13 @@
+version: '3'
+services:
+  broker:
+    image: rabbitmq:3.9-management
+    ports:
+      - 15677:15672
+    expose:
+      - "5552"
+  go_client:
+    build: ./client/
+    volumes:
+      - ./client/src:/home/src_tmp
+    tty: true

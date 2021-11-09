@@ -1,0 +1,1 @@
+FROM RabbitMQ:3.9.7-alpine

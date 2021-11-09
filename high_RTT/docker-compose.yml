@@ -1,0 +1,17 @@
+version: "3"
+services:
+    latency_rabit:
+        container_name: "l-rabit"
+        build: ./latency_rabit
+        cap_add:
+            - NET_ADMIN
+    subscriber:
+        build: ./amqp_client
+        tty: true
+        depends_on:
+            - latency_rabit
+    publisher:
+        build: ./amqp_publisher
+        tty: true
+        depends_on:
+            - latency_rabit

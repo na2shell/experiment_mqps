@@ -1,0 +1,16 @@
+version: "3"
+services:
+  broker:
+    image: rabbitmq:3.9-management
+    ports:
+      - 8881:5671
+      - 8885:5672
+      - 8882:15672
+    volumes:
+      - ./rabbitmq.conf:/etc/rabbitmq/conf.d/rabbitmq.conf
+      - ./src/cert_self:/etc/rabbitmq/conf.d/certs
+  client:
+    image: python:3.9
+    volumes:
+      - ./src:/home/src
+    tty: true

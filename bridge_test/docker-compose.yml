@@ -1,0 +1,22 @@
+version: '3'
+services: 
+  master:
+    image: rabbitmq:3-management
+    hostname: rabbit-master
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=abcd
+    ports:
+    - "5672:5672"
+    - "15672:15672"
+  
+  slave:
+    image: rabbitmq:3-management
+    hostname: rabbit-slave
+    environment:
+      - RABBITMQ_ERLANG_COOKIE=abcd
+      - CLUSTER_WITH=rabbit-master
+    ports:
+    - "5673:5672"
+    - "15673:15672"
+
+

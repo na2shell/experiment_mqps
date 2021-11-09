@@ -1,0 +1,13 @@
+version: '3'
+services: 
+  server:
+    build: .
+    cap_add:
+      - NET_ADMIN
+    tty: true
+  
+  client:
+    build: .
+    cap_add:
+      - NET_ADMIN
+    tty: true

@@ -1,0 +1,5 @@
+tls-genでcertは作成
+
+docker build . -t rabbitmq_mqtt_tls
+
+docker run -it -p 8883:8883 -p 1883:1883 -p 5671:5671 -p 15672:15672 --name rabbitmq_mqtt_tls_1 rabbitmq_mqtt_tls

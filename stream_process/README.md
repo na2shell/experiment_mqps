@@ -1,0 +1,8 @@
+低いプライオリティのものは、
+一部溜めておいてからアクセスできるようにしたい。
+
+そのためにDB等を使ってもよいが、更新時のロックなどの問題が発生する
+可能性がある。代替として、streamが使えないかを調べる。
+
+プラグインを有効にするための使ったコマンド
+docker exec stream_process_broker_1 rabbitmq-plugins enable rabbitmq_stream

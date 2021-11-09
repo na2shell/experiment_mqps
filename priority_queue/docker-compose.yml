@@ -1,0 +1,22 @@
+version: '3'
+services:
+  broker:
+    image: rabbitmq:3-management
+    hostname: some-rabbit
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+  client:
+    build: ./client/
+    tty: true
+    volumes: 
+      - ./client/src:/home/src
+    cap_add:
+      - NET_ADMIN
+  sub:
+    build: ./client/
+    tty: true
+    volumes: 
+      - ./client/src:/home/src
+    cap_add:
+      - NET_ADMIN
