@@ -2,15 +2,25 @@ version: '3'
 services:
   broker:
     image: rabbitmq:3-management
-    hostname: some-rabbit
+    hostname: my-rabbit
     ports:
       - "15672:15672"
-      - "5672:5672"
-  client:
+  web:
+    build: 
+      context: ./web
+      dockerfile: Dockerfile
+    hostname: my-web
+    volumes: 
+      - ./data:/usr/share/nginx/html
+    cap_add:
+      - NET_ADMIN
+  pub:
     build: ./client/
     tty: true
     volumes: 
       - ./client/src:/home/src
+      - ./data:/home/data
+      - ./log:/home/log
     cap_add:
       - NET_ADMIN
   sub:

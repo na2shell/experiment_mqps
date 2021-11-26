@@ -6,6 +6,7 @@ id_rsa
 /Server/http-server/public-html
 /Client/Subscribe_from_DWD/log/
 /Server/mqtt-broker/cert/
+anal_mqps/
 
 .htpasswd
 Server/mqtt-broker/mqttpass
