@@ -44,7 +44,7 @@ if __name__ == "__main__":
     for i in range(100):
         p = random.randint(1, 5)
 
-        if p > 3:
+        if p < 3:
             filename = make_file("10k")
         else:
             filename = make_file("500b")
