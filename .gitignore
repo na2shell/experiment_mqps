@@ -15,6 +15,10 @@ log/
 Cache/
 _downloader_AN.sh/
 _downloader_BUFR.sh/
+*.dat
+*.png
+*.pdf
+
 
 *.swp
 *.crt
